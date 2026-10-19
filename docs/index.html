@@ -602,8 +602,11 @@ input[type=range]{width:100%;accent-color:var(--accent)}
             <label for="monHeatTable">Damage Table</label>
             <select id="monHeatTable"></select>
           </div>
+          <!-- when the game itself switches the monster to Table 1 (hitzones.json `altWhen`, read from its class
+               code) -- a fact about the trigger, not a name -->
+          <p class="hint" id="monHeatTableHint" hidden></p>
           <label class="chk" id="monZoneShowRow"><input type="checkbox" id="monZoneShow" checked>Show the Chart over the Render</label>
-          <!-- with no hit-zone data (MH3U's are not decoded yet) this note is all the panel shows; see applyHeat() -->
+          <!-- with no hit-zone data for a monster this note is all the panel shows; see applyHeat() -->
           <p class="hint" id="monZoneNote" hidden></p>
         </div>
       </section>
@@ -3052,6 +3055,9 @@ async function applyHeat(){
   // monster's row is not left showing while this one's zones load.
   const heatTableRow = document.getElementById('monHeatTableRow');
   heatTableRow.hidden = !rec || rec.tables.length < 2;
+  const tableHint = document.getElementById('monHeatTableHint');
+  tableHint.hidden = heatTableRow.hidden || !rec.altWhen;
+  tableHint.textContent = tableHint.hidden ? '' : 'The game switches this monster to Table 1 on ' + rec.altWhen + '.';
   if (!rec){
     // No hit zones for this monster: the panel says so rather than emptying itself out. With no
     // hitzones.json at all -- MH3U today -- that line is all the panel shows.
