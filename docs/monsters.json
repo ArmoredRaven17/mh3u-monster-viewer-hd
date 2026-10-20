@@ -20,7 +20,8 @@
    "em082: not listed -- no motion lists (a static prop)",
    "em083: not listed -- no motion lists (a static prop)",
    "em084: not listed -- no motion lists (a static prop)"
-  ]
+  ],
+  "listRow": "the monster's row in the game's own Monster List (mh3u_species.rows(), 72 rows at 0xba338c), null where it has none; the viewer orders each species by it"
  },
  "monsters": [
   {
@@ -1232,7 +1233,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 36
   },
   {
    "id": "em002",
@@ -2424,7 +2426,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 39
   },
   {
    "id": "em003",
@@ -3558,7 +3561,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3
+   "listRank": 3,
+   "listRow": 28
   },
   {
    "id": "em004",
@@ -4913,7 +4917,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 44
   },
   {
    "id": "em005",
@@ -6211,7 +6216,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 46
   },
   {
    "id": "em006",
@@ -7339,7 +7345,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 42
   },
   {
    "id": "em007",
@@ -8392,7 +8399,8 @@
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 6
+   "listRank": 6,
+   "listRow": 67
   },
   {
    "id": "em008",
@@ -9404,7 +9412,8 @@
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 30
   },
   {
    "id": "em009",
@@ -10315,7 +10324,8 @@
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 32
   },
   {
    "id": "em010",
@@ -10902,7 +10912,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 10
   },
   {
    "id": "em011",
@@ -11554,7 +11565,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 11
   },
   {
    "id": "em012",
@@ -12305,7 +12317,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3
+   "listRank": 3,
+   "listRow": 22
   },
   {
    "id": "em013",
@@ -12852,7 +12865,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 12
   },
   {
    "id": "em014",
@@ -13623,7 +13637,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3
+   "listRank": 3,
+   "listRow": 23
   },
   {
    "id": "em015",
@@ -14884,7 +14899,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 52
   },
   {
    "id": "em016",
@@ -16114,7 +16130,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3
+   "listRank": 3,
+   "listRow": 48
   },
   {
    "id": "em017",
@@ -16814,7 +16831,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 14
   },
   {
    "id": "em018",
@@ -18054,7 +18072,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 50
   },
   {
    "id": "em019",
@@ -19177,7 +19196,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 55
   },
   {
    "id": "em020",
@@ -20101,7 +20121,8 @@
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 65
   },
   {
    "id": "em021",
@@ -20733,7 +20754,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 15
   },
   {
    "id": "em022",
@@ -21100,7 +21122,8 @@
    "speciesIdx": 3,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 16
   },
   {
    "id": "em023",
@@ -21759,7 +21782,8 @@
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1
+   "listRank": 1,
+   "listRow": 2
   },
   {
    "id": "em024",
@@ -23018,7 +23042,8 @@
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6
+   "listRank": 6,
+   "listRow": 70
   },
   {
    "id": "em025",
@@ -24097,7 +24122,8 @@
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6
+   "listRank": 6,
+   "listRow": 68
   },
   {
    "id": "em026",
@@ -24457,7 +24483,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 9
   },
   {
    "id": "em027",
@@ -25026,7 +25053,8 @@
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1
+   "listRank": 1,
+   "listRow": 0
   },
   {
    "id": "em028",
@@ -25602,7 +25630,8 @@
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1
+   "listRank": 1,
+   "listRow": 3
   },
   {
    "id": "em029",
@@ -26151,7 +26180,8 @@
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 17
   },
   {
    "id": "em030",
@@ -26817,7 +26847,8 @@
    "speciesIdx": 8,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1
+   "listRank": 1,
+   "listRow": 6
   },
   {
    "id": "em031",
@@ -27483,7 +27514,8 @@
    "speciesIdx": 8,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 7
   },
   {
    "id": "em033",
@@ -27900,7 +27932,8 @@
    "speciesIdx": 10,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1
+   "listRank": 1,
+   "listRow": 5
   },
   {
    "id": "em034",
@@ -28600,7 +28633,8 @@
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1
+   "listRank": 1,
+   "listRow": 1
   },
   {
    "id": "em035",
@@ -28715,7 +28749,8 @@
    "speciesIdx": null,
    "speciesFrom": null,
    "listSection": null,
-   "listRank": null
+   "listRank": null,
+   "listRow": null
   },
   {
    "id": "em036",
@@ -29137,7 +29172,8 @@
    "speciesIdx": 10,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 4
   },
   {
    "id": "em037",
@@ -29559,7 +29595,8 @@
    "speciesIdx": 10,
    "speciesFrom": "the record of em036",
    "listSection": null,
-   "listRank": null
+   "listRank": null,
+   "listRow": null
   },
   {
    "id": "em038",
@@ -29981,7 +30018,8 @@
    "speciesIdx": 10,
    "speciesFrom": "the record of em036",
    "listSection": null,
-   "listRank": null
+   "listRank": null,
+   "listRow": null
   },
   {
    "id": "em039",
@@ -30403,7 +30441,8 @@
    "speciesIdx": 10,
    "speciesFrom": "the record of em036",
    "listSection": null,
-   "listRank": null
+   "listRank": null,
+   "listRow": null
   },
   {
    "id": "em041",
@@ -31804,7 +31843,8 @@
    "speciesIdx": 5,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 60
   },
   {
    "id": "em042",
@@ -32687,7 +32727,8 @@
    "speciesIdx": 6,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3
+   "listRank": 3,
+   "listRow": 25
   },
   {
    "id": "em043",
@@ -33595,7 +33636,8 @@
    "speciesIdx": 6,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3
+   "listRank": 3,
+   "listRow": 26
   },
   {
    "id": "em044",
@@ -34507,7 +34549,8 @@
    "speciesIdx": 6,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 27
   },
   {
    "id": "em045",
@@ -35275,7 +35318,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3
+   "listRank": 3,
+   "listRow": 24
   },
   {
    "id": "em046",
@@ -36303,7 +36347,8 @@
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 34
   },
   {
    "id": "em047",
@@ -37435,7 +37480,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 51
   },
   {
    "id": "em048",
@@ -38081,7 +38127,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 13
   },
   {
    "id": "em049",
@@ -38659,7 +38706,8 @@
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 20
   },
   {
    "id": "em050",
@@ -39178,7 +39226,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1
+   "listRank": 1,
+   "listRow": 18
   },
   {
    "id": "em051",
@@ -40319,7 +40368,8 @@
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3
+   "listRank": 3,
+   "listRow": 29
   },
   {
    "id": "em052",
@@ -41674,7 +41724,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 45
   },
   {
    "id": "em053",
@@ -42992,7 +43043,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 47
   },
   {
    "id": "em054",
@@ -44004,7 +44056,8 @@
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 31
   },
   {
    "id": "em055",
@@ -44915,7 +44968,8 @@
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 33
   },
   {
    "id": "em056",
@@ -46145,7 +46199,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3
+   "listRank": 3,
+   "listRow": 49
   },
   {
    "id": "em057",
@@ -47157,7 +47212,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 56
   },
   {
    "id": "em058",
@@ -48285,7 +48341,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 43
   },
   {
    "id": "em059",
@@ -49592,7 +49649,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 57
   },
   {
    "id": "em060",
@@ -50899,7 +50957,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 58
   },
   {
    "id": "em061",
@@ -52180,7 +52239,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 3,
-   "listRank": 6
+   "listRank": 6,
+   "listRow": 59
   },
   {
    "id": "em062",
@@ -53431,7 +53491,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 37
   },
   {
    "id": "em063",
@@ -54682,7 +54743,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 38
   },
   {
    "id": "em064",
@@ -55886,7 +55948,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4
+   "listRank": 4,
+   "listRow": 40
   },
   {
    "id": "em065",
@@ -57090,7 +57153,8 @@
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 41
   },
   {
    "id": "em066",
@@ -58259,7 +58323,8 @@
    "speciesIdx": 3,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 62
   },
   {
    "id": "em067",
@@ -59475,7 +59540,8 @@
    "speciesIdx": 3,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 63
   },
   {
    "id": "em068",
@@ -60760,7 +60826,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 53
   },
   {
    "id": "em069",
@@ -61776,7 +61843,8 @@
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 6
+   "listRank": 6,
+   "listRow": 54
   },
   {
    "id": "em070",
@@ -62779,7 +62847,8 @@
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6
+   "listRank": 6,
+   "listRow": 66
   },
   {
    "id": "em071",
@@ -63828,7 +63897,8 @@
    "speciesIdx": 2,
    "speciesFrom": "uEm007 of em007",
    "listSection": null,
-   "listRank": null
+   "listRank": null,
+   "listRow": null
   },
   {
    "id": "em072",
@@ -65225,7 +65295,8 @@
    "speciesIdx": 5,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 61
   },
   {
    "id": "em073",
@@ -66241,7 +66312,8 @@
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 35
   },
   {
    "id": "em074",
@@ -67284,7 +67356,8 @@
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5
+   "listRank": 5,
+   "listRow": 64
   },
   {
    "id": "em075",
@@ -68459,7 +68532,8 @@
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6
+   "listRank": 6,
+   "listRow": 71
   },
   {
    "id": "em076",
@@ -68891,7 +68965,8 @@
    "speciesIdx": 6,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2
+   "listRank": 2,
+   "listRow": 19
   },
   {
    "id": "em077",
@@ -69482,7 +69557,8 @@
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1
+   "listRank": 1,
+   "listRow": 21
   },
   {
    "id": "em078",
@@ -70060,7 +70136,8 @@
    "speciesIdx": 9,
    "speciesFrom": "the record of em049",
    "listSection": null,
-   "listRank": null
+   "listRank": null,
+   "listRow": null
   },
   {
    "id": "em085",
@@ -71167,7 +71244,8 @@
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6
+   "listRank": 6,
+   "listRow": 69
   }
  ]
 }
