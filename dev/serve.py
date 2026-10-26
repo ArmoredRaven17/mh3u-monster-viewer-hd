@@ -76,7 +76,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(out)
 
     def log_message(self, fmt, *args):
-        if "/shot" in (args[0] if args else ""):
+        if "/shot" in (str(args[0]) if args else ""):   # args[0] is an HTTPStatus on errors (404s)
             sys.stderr.write("%s\n" % (fmt % args))
 
 

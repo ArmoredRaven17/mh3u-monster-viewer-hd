@@ -1,0 +1,1112 @@
+{
+ "_about": "Shared effect archive arc/eft/qe.arc from the Wii U disc (the common bank the class code and .esq request with a row mask). Same layout as a monster's effects/<em>.json.",
+ "files": {
+  "effect\\efl\\qe\\qe000\\qe000_000": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_000.efl",
+  "effect\\efl\\qe\\qe000\\qe000_001": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_001.efl",
+  "effect\\efl\\qe\\qe000\\qe000_002": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_002.efl",
+  "effect\\efl\\qe\\qe000\\qe000_003": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_003.efl",
+  "effect\\efl\\qe\\qe000\\qe000_004": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_004.efl",
+  "effect\\efl\\qe\\qe000\\qe000_005": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_005.efl",
+  "effect\\efl\\qe\\qe000\\qe000_009": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_009.efl",
+  "effect\\efl\\qe\\qe000\\qe000_010": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_010.efl",
+  "effect\\efl\\qe\\qe000\\qe000_021": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_021.efl",
+  "effect\\efl\\qe\\qe000\\qe000_050": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_050.efl",
+  "effect\\efl\\qe\\qe000\\qe000_051": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_051.efl",
+  "effect\\efl\\qe\\qe000\\qe000_052": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_052.efl",
+  "effect\\efl\\qe\\qe000\\qe000_100": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_100.efl",
+  "effect\\efl\\qe\\qe000\\qe000_101": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_101.efl",
+  "effect\\efl\\qe\\qe000\\qe000_102": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_102.efl",
+  "effect\\efl\\qe\\qe000\\qe000_103": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_103.efl",
+  "effect\\efl\\qe\\qe000\\qe000_104": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_104.efl",
+  "effect\\efl\\qe\\qe000\\qe000_105": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_105.efl",
+  "effect\\efl\\qe\\qe000\\qe000_150": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_150.efl",
+  "effect\\efl\\qe\\qe000\\qe000_151": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_151.efl",
+  "effect\\efl\\qe\\qe000\\qe000_152": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_152.efl",
+  "effect\\efl\\qe\\qe000\\qe000_153": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_153.efl",
+  "effect\\efl\\qe\\qe000\\qe000_154": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_154.efl",
+  "effect\\efl\\qe\\qe000\\qe000_155": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_155.efl",
+  "effect\\efl\\qe\\qe000\\qe000_156": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_156.efl",
+  "effect\\efl\\qe\\qe000\\qe000_158": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_158.efl",
+  "effect\\efl\\qe\\qe000\\qe000_160": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_160.efl",
+  "effect\\efl\\qe\\qe000\\qe000_200": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_200.efl",
+  "effect\\efl\\qe\\qe000\\qe000_201": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_201.efl",
+  "effect\\efl\\qe\\qe000\\qe000_300": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_300.efl",
+  "effect\\efl\\qe\\qe000\\qe000_301": "effects/files/bank/qe/effect/efl/qe/qe000/qe000_301.efl",
+  "effect\\efl\\qe\\qe001\\qe001_000": "effects/files/bank/qe/effect/efl/qe/qe001/qe001_000.efl",
+  "effect\\efl\\qe\\qe001\\qe001_100": "effects/files/bank/qe/effect/efl/qe/qe001/qe001_100.efl",
+  "effect\\efl\\qe\\qe001\\qe001_200": "effects/files/bank/qe/effect/efl/qe/qe001/qe001_200.efl",
+  "effect\\efl\\qe\\qe001\\qe001_300": "effects/files/bank/qe/effect/efl/qe/qe001/qe001_300.efl",
+  "effect\\efl\\qe\\qe001\\qe001_301": "effects/files/bank/qe/effect/efl/qe/qe001/qe001_301.efl",
+  "effect\\mod\\qe\\qe000\\qe000_002": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_002.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_003": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_003.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_004": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_004.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_005": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_005.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_006": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_006.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_007": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_007.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_008": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_008.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_009": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_009.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_010": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_010.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_011": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_011.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_012": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_012.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_013": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_013.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_014": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_014.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_015": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_015.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_016": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_016.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_017": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_017.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_018": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_018.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_019": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_019.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_020": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_020.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_021": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_021.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_022": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_022.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_023": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_023.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_024": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_024.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_030": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_030.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_040": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_040.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_041": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_041.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_042": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_042.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_044": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_044.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_045": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_045.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_046": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_046.mrl",
+  "effect\\mod\\qe\\qe000\\qe000_047": "effects/files/bank/qe/effect/mod/qe/qe000/qe000_047.mrl",
+  "effect\\mod\\qe\\qe001\\qe001_000": "effects/files/bank/qe/effect/mod/qe/qe001/qe001_000.mrl",
+  "effect\\mod\\qe\\qe001\\qe001_200": "effects/files/bank/qe/effect/mod/qe/qe001/qe001_200.mrl",
+  "effect\\mod\\qe\\qe002\\qe002_000": "effects/files/bank/qe/effect/mod/qe/qe002/qe002_000.mrl",
+  "effect\\mod\\wp\\bgn\\bgn_000": "effects/files/bank/qe/effect/mod/wp/bgn/bgn_000.mrl",
+  "effect\\tex\\lb\\lb000\\lb000_tex16": "effects/files/bank/qe/effect/tex/lb/lb000/lb000_tex16.ean",
+  "effect\\tex\\lb\\lb000\\lb000_tex64": "effects/files/bank/qe/effect/tex/lb/lb000/lb000_tex64.ean",
+  "effect\\tex\\qe\\qe000\\qe000_102": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_102.ean",
+  "effect\\tex\\qe\\qe000\\qe000_200": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_200.ean",
+  "effect\\tex\\qe\\qe000\\qe000_202": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_202.ean",
+  "effect\\tex\\qe\\qe000\\qe000_203": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_203.ean",
+  "effect\\tex\\qe\\qe000\\qe000_206": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_206.ean",
+  "effect\\tex\\qe\\qe000\\qe000_208": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_208.ean",
+  "effect\\tex\\qe\\qe000\\qe000_301": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_301.ean",
+  "effect\\tex\\qe\\qe000\\qe000_307": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_307.ean",
+  "effect\\tex\\qe\\qe000\\qe000_309": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_309.ean",
+  "effect\\tex\\qe\\qe000\\qe000_30a": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_30a.ean",
+  "effect\\tex\\qe\\qe000\\qe000_30b": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_30b.ean",
+  "effect\\tex\\qe\\qe000\\qe000_30c": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_30c.ean",
+  "effect\\tex\\qe\\qe000\\qe000_311": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_311.ean",
+  "effect\\tex\\qe\\qe000\\qe000_312": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_312.ean",
+  "effect\\tex\\qe\\qe000\\qe000_406": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_406.ean",
+  "effect\\tex\\qe\\qe000\\qe000_40b": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_40b.ean",
+  "effect\\tex\\qe\\qe000\\qe000_419": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_419.ean",
+  "effect\\tex\\qe\\qe000\\qe000_701": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_701.ean",
+  "effect\\tex\\qe\\qe000\\qe000_703": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_703.ean",
+  "effect\\tex\\qe\\qe000\\qe000_705": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_705.ean",
+  "effect\\tex\\qe\\qe000\\qe000_tex16": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_tex16.ean",
+  "effect\\tex\\qe\\qe000\\qe000_tex32": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_tex32.ean",
+  "effect\\tex\\qe\\qe000\\qe000_tex64": "effects/files/bank/qe/effect/tex/qe/qe000/qe000_tex64.ean"
+ },
+ "resources": {
+  "effect\\mod\\qe\\qe000\\qe000_002_BM": {
+   "tex": "tex/bc0f28f16130eae1.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_003_BM": {
+   "tex": "tex/8f1b81f688fc265d.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_004_00_BM": {
+   "tex": "tex/4103ad88971276c5.webp",
+   "size": [
+    256,
+    256
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_004_01_BM": {
+   "tex": "tex/9a3785494699c7f5.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_004_02_BM": {
+   "tex": "tex/40da91108e44aef9.webp",
+   "size": [
+    128,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_004_03_BM": {
+   "tex": "tex/a517e3814efb1a2d.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_004_04_BM": {
+   "tex": "tex/08e75d99cab84748.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_005_BM": {
+   "tex": "tex/12e6508fd931926e.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_006_BM": {
+   "tex": "tex/7a15e7b8d705c775.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_007_BM": {
+   "tex": "tex/8cc438075098ad10.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_008_BM": {
+   "tex": "tex/3a64f5aae13cf317.webp",
+   "size": [
+    32,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_009_00_BM": {
+   "tex": "tex/55b2f8679c8d6706.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_009_01_BM": {
+   "tex": "tex/30ecdfac08c25fa7.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_010_BM": {
+   "tex": "tex/826c8f4e908ea3a3.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_011_BM": {
+   "tex": "tex/5cd46f4746979a8e.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_012_BM": {
+   "tex": "tex/f2f8a29e0a86d710.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_013_BM": {
+   "tex": "tex/0fbad4834d5cda5f.webp",
+   "size": [
+    32,
+    16
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_014_BM": {
+   "tex": "tex/f4ba004e368d30bf.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_015_01_BM": {
+   "tex": "tex/b1814413d757059e.webp",
+   "size": [
+    256,
+    256
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_015_02_BM": {
+   "tex": "tex/8977b3e8f8848787.webp",
+   "size": [
+    256,
+    256
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_015_03_BM": {
+   "tex": "tex/c99f7c7b2fb1718b.webp",
+   "size": [
+    256,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_015_04_BM": {
+   "tex": "tex/3d191f2f6fd2a09b.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_016_BM": {
+   "tex": "tex/10575db0dc0295b2.webp",
+   "size": [
+    64,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_017_BM": {
+   "tex": "tex/a99d65d650888592.webp",
+   "size": [
+    64,
+    32
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_018_BM": {
+   "tex": "tex/504fde14fb5bafe1.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_019_BM": {
+   "tex": "tex/870a9b5a7865ed84.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_020_BM": {
+   "tex": "tex/dc947628070e060f.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_021_BM": {
+   "tex": "tex/8c5ef9ae174d0d17.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_022_BM": {
+   "tex": "tex/44e16b17f9ba1f08.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_023_BM": {
+   "tex": "tex/09b22ce669c426fc.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_024_BM": {
+   "tex": "tex/df0f76bf6bf76943.webp",
+   "size": [
+    64,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_030_BM": {
+   "tex": "tex/4c7cc00f36912fde.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_040_BM": {
+   "tex": "tex/469bbdfa24b737ec.webp",
+   "size": [
+    32,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_041_BM": {
+   "tex": "tex/b421d9b29473b39b.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_042_BM": {
+   "tex": "tex/b421d9b29473b39b.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_044_00_BM": {
+   "tex": "tex/111424114a8c9ba8.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_044_01_BM": {
+   "tex": "tex/fba5d9b65ffade7f.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_044_02_BM": {
+   "tex": "tex/422d308f1e52eca4.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_045_BM": {
+   "tex": "tex/a2559e1b954a37cc.webp",
+   "size": [
+    128,
+    32
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_046_BM": {
+   "tex": "tex/40da91108e44aef9.webp",
+   "size": [
+    128,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_047_BM": {
+   "tex": "tex/73c33fa536b2f142.webp",
+   "size": [
+    128,
+    32
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe001\\qe001_000_BM": {
+   "tex": "tex/609cc40e6f021ac3.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe001\\qe001_200_00_BM": {
+   "tex": "tex/b43834f62e8e0692.webp",
+   "size": [
+    64,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe001\\qe001_200_01_BM": {
+   "tex": "tex/c359b64bed5b273a.webp",
+   "size": [
+    64,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe002\\qe002_000_BM": {
+   "tex": "tex/5e67d22c04944ce6.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\mod\\wp\\bgn\\bgn_000_BM": {
+   "tex": "tex/7dc54ad3a76d61a3.webp",
+   "size": [
+    64,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\lb\\lb000\\lb000_403_BM": {
+   "tex": "tex/faeaafece144f4cf.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\lb\\lb000\\lb000_40c_BM": {
+   "tex": "tex/26ed353b92fe454b.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_000_BM": {
+   "tex": "tex/7988a7256914e8e5.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_006_BM": {
+   "tex": "tex/abaa439cf520b82e.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_100_BM": {
+   "tex": "tex/fa285700023a2107.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_101_BM": {
+   "tex": "tex/c4049b5d425cb387.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_102_BM": {
+   "tex": "tex/f19ca8dbccb5c8b0.webp",
+   "size": [
+    256,
+    256
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_103_BM": {
+   "tex": "tex/f6333395c1056943.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_104_BM": {
+   "tex": "tex/35678790daadf823.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_105_BM": {
+   "tex": "tex/0d9a4f7c151ed054.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_106_BM": {
+   "tex": "tex/a2ae7a486e74e0ac.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_107_BM": {
+   "tex": "tex/705f10161428fad9.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_108_BM": {
+   "tex": "tex/57a3f0a2276da2e7.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_109_BM": {
+   "tex": "tex/d7541decdbacfa68.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_10a_BM": {
+   "tex": "tex/a6789a725bde841e.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_10b_BM": {
+   "tex": "tex/9f2f21a65cac4f17.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_10c_BM": {
+   "tex": "tex/5865fbfa2f773473.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_10d_BM": {
+   "tex": "tex/b0eb0aa1062934d9.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_10e_BM": {
+   "tex": "tex/455e2966139e9c0a.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_200_BM": {
+   "tex": "tex/c945241006ae18d7.webp",
+   "size": [
+    512,
+    256
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_201_BM": {
+   "tex": "tex/78e961a3ee495b9a.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_202_BM": {
+   "tex": "tex/96f7dbda2e8f89b0.webp",
+   "size": [
+    256,
+    256
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_203_BM": {
+   "tex": "tex/c01726bc6b56ee41.webp",
+   "size": [
+    256,
+    128
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_204_BM": {
+   "tex": "tex/e7b7eb248f67a98c.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_205_BM": {
+   "tex": "tex/281d069012dce0c7.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_206_BM": {
+   "tex": "tex/87d8945428c4e10c.webp",
+   "size": [
+    128,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_208_BM": {
+   "tex": "tex/c79fd471dbd3eb69.webp",
+   "size": [
+    256,
+    256
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_300_BM": {
+   "tex": "tex/46a076ba7cf893ab.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_301_BM": {
+   "tex": "tex/3a50eb3f3bfc210b.webp",
+   "size": [
+    256,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_302_BM": {
+   "tex": "tex/9f47bce3fe1b8ad0.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_303_BM": {
+   "tex": "tex/2cf78018d0ffd8b5.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_305_BM": {
+   "tex": "tex/965cc3a6d9b72f94.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_306_BM": {
+   "tex": "tex/2eb8c8e70d59768a.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_307_BM": {
+   "tex": "tex/27f598afd967745f.webp",
+   "size": [
+    256,
+    256
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_308_BM": {
+   "tex": "tex/1dcfbc350f441d45.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_309_BM": {
+   "tex": "tex/da37af7885d6ab09.webp",
+   "size": [
+    128,
+    32
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_30a_BM": {
+   "tex": "tex/56273af6e5428f7a.webp",
+   "size": [
+    128,
+    32
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_30b_BM": {
+   "tex": "tex/4a95b8ffd5361d13.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_30c_BM": {
+   "tex": "tex/b4217e3977d1432e.webp",
+   "size": [
+    64,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_30d_BM": {
+   "tex": "tex/ede3728bf60971fa.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_311_BM": {
+   "tex": "tex/a01ffaf51fdfbeb7.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_312_BM": {
+   "tex": "tex/819887caf829c427.webp",
+   "size": [
+    256,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_400_BM": {
+   "tex": "tex/4840320eaf8f2d31.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_401_BM": {
+   "tex": "tex/8131a326219be21a.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_402_BM": {
+   "tex": "tex/5dadbadf0ecf49b3.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_403_BM": {
+   "tex": "tex/ee8d14f6a97b8676.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_404_BM": {
+   "tex": "tex/e841470483df07bc.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_406_BM": {
+   "tex": "tex/765e0f68711dc9aa.webp",
+   "size": [
+    32,
+    256
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_407_BM": {
+   "tex": "tex/17f7d61beb519504.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_408_BM": {
+   "tex": "tex/e3ddbf2b218bb170.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_40b_BM": {
+   "tex": "tex/9057aa79338db90f.webp",
+   "size": [
+    64,
+    128
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_40c_BM": {
+   "tex": "tex/a22ca24879e9044b.webp",
+   "size": [
+    32,
+    32
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_40e_BM": {
+   "tex": "tex/519287bdaf1a96ab.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_411_BM": {
+   "tex": "tex/d8b60875413635ac.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_413_BM": {
+   "tex": "tex/d003c42571913c01.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_414_BM": {
+   "tex": "tex/5501448fbe62f342.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_415_BM": {
+   "tex": "tex/b50c2c5d40844f99.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_416_BM": {
+   "tex": "tex/46f8c27ed94e4763.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_417_BM": {
+   "tex": "tex/ceceb2dbc8aecb3b.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_419_BM": {
+   "tex": "tex/eff89b7a1488df85.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_423_BM": {
+   "tex": "tex/5300010b29f81ff5.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_425_BM": {
+   "tex": "tex/a85cdc20902083ee.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT1"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_700_BM": {
+   "tex": "tex/19b75cdfab7cdae1.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_701_BM": {
+   "tex": "tex/7d44f7648fcbb644.webp",
+   "size": [
+    128,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_703_BM": {
+   "tex": "tex/79929a4d2ab7c42f.webp",
+   "size": [
+    128,
+    128
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe000\\qe000_705_BM": {
+   "tex": "tex/1e733cd605ba4994.webp",
+   "size": [
+    128,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\tex\\qe\\qe001\\qe001_300_BM": {
+   "tex": "tex/c169669b45c46bf0.webp",
+   "size": [
+    64,
+    64
+   ],
+   "format": "DXT3"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_002": {
+   "glb": "models/effects/qe000_002.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_003": {
+   "glb": "models/effects/qe000_003.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_004": {
+   "glb": "models/effects/qe000_004.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_005": {
+   "glb": "models/effects/qe000_005.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_006": {
+   "glb": "models/effects/qe000_006.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_007": {
+   "glb": "models/effects/qe000_007.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_008": {
+   "glb": "models/effects/qe000_008.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_009": {
+   "glb": "models/effects/qe000_009.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_010": {
+   "glb": "models/effects/qe000_010.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_011": {
+   "glb": "models/effects/qe000_011.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_012": {
+   "glb": "models/effects/qe000_012.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_013": {
+   "glb": "models/effects/qe000_013.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_014": {
+   "glb": "models/effects/qe000_014.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_015": {
+   "glb": "models/effects/qe000_015.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_016": {
+   "glb": "models/effects/qe000_016.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_017": {
+   "glb": "models/effects/qe000_017.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_018": {
+   "glb": "models/effects/qe000_018.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_019": {
+   "glb": "models/effects/qe000_019.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_020": {
+   "glb": "models/effects/qe000_020.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_021": {
+   "glb": "models/effects/qe000_021.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_022": {
+   "glb": "models/effects/qe000_022.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_023": {
+   "glb": "models/effects/qe000_023.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_024": {
+   "glb": "models/effects/qe000_024.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_030": {
+   "glb": "models/effects/qe000_030.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_040": {
+   "glb": "models/effects/qe000_040.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_041": {
+   "glb": "models/effects/qe000_041.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_042": {
+   "glb": "models/effects/qe000_042.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_044": {
+   "glb": "models/effects/qe000_044.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_045": {
+   "glb": "models/effects/qe000_045.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_046": {
+   "glb": "models/effects/qe000_046.glb"
+  },
+  "effect\\mod\\qe\\qe000\\qe000_047": {
+   "glb": "models/effects/qe000_047.glb"
+  },
+  "effect\\mod\\qe\\qe001\\qe001_000": {
+   "glb": "models/effects/qe001_000.glb"
+  },
+  "effect\\mod\\qe\\qe001\\qe001_200": {
+   "glb": "models/effects/qe001_200.glb"
+  },
+  "effect\\mod\\qe\\qe002\\qe002_000": {
+   "glb": "models/effects/qe002_000.glb"
+  },
+  "effect\\mod\\wp\\bgn\\bgn_000": {
+   "glb": "models/effects/bgn_000.glb"
+  }
+ }
+}

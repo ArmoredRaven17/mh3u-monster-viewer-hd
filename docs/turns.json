@@ -1,0 +1,334 @@
+{
+ "_about": "Reads  scratch_fx/eng7_opt_turn.txt   -- every em001 action's turn sites, emulated from 3U's own code (notes/options-3u.md 3)\nWrites MH3U-Monster-Viewer-HD/docs/turns.json   {<em>: {'<list>|Motion[N]': [row, ...]}, _about}, adding to the file\n\nA row: {action, rate, travel, when, rank, pitch}\n  rate    u16 per tick; the monster turns trunc(rate * 0.5 * speed) per motion frame toward the target's x/z (0x8357b0 / 0x8392d8,\n          snapping when closer than one step)\n  travel  the turn is the travel step's (0x843b80, travelStep flags 0) rather than a direct 0x8357b0 call\n  when    null = every frame of the motion; {mode, a, b, not}: the frame test the site sits behind -- mode 1 a: frame >= a,\n          mode 2 a: the last -a frames, mode 3 a b: a <= frame < b (modes 1-3 INFERRED from the test routine's arguments, mode 0\n          READ); not = the turn runs while the test is false\n  rank    {questRank: rate}: the rate at that quest rank and above (notes/options-3u.md 1: 7/17 / 7/78 at G -> 0x200)\n  pitch   {goal | aim, rate, add}: the body pitch the same action steps (0x696580 / 0x68ee54, notes/options-3u.md 3.1): a fixed\n          goal, or aimed at the target (atan2 of the height gap over the flat distance, positive when the target is below,\n          + add, clamped unsigned to 0x3000)\nA motion several actions play turns as its FIRST action in the file does (a viewer choice, as the effects' first listed action).",
+ "em001": {
+  "0|Motion[6]": [
+   {
+    "rate": 64,
+    "travel": true,
+    "when": null,
+    "site": "0x690e68",
+    "action": "2/0"
+   }
+  ],
+  "0|Motion[7]": [
+   {
+    "rate": 64,
+    "travel": true,
+    "when": null,
+    "site": "0x690f60",
+    "action": "2/3"
+   }
+  ],
+  "0|Motion[26]": [
+   {
+    "rate": 256,
+    "travel": false,
+    "when": null,
+    "site": "0x68da2c",
+    "action": "3/0"
+   }
+  ],
+  "0|Motion[62]": [
+   {
+    "rate": 128,
+    "travel": true,
+    "when": null,
+    "site": "0x82b5ac",
+    "action": "3/8"
+   }
+  ],
+  "0|Motion[45]": [
+   {
+    "rate": 384,
+    "travel": false,
+    "when": null,
+    "site": "0x69998c",
+    "action": "3/15"
+   }
+  ],
+  "2|Motion[24]": [
+   {
+    "rate": 364,
+    "travel": false,
+    "when": {
+     "mode": 2,
+     "a": -10.0,
+     "b": 0.0,
+     "not": true
+    },
+    "site": "0x6927fc",
+    "action": "4/16"
+   },
+   {
+    "rate": 910,
+    "travel": false,
+    "when": {
+     "mode": 2,
+     "a": -10.0,
+     "b": 0.0,
+     "not": false
+    },
+    "site": "0x69251c",
+    "action": "4/16"
+   }
+  ],
+  "2|Motion[23]": [
+   {
+    "rate": 364,
+    "travel": false,
+    "when": {
+     "mode": 2,
+     "a": -10.0,
+     "b": 0.0,
+     "not": true
+    },
+    "site": "0x6927fc",
+    "action": "4/17"
+   },
+   {
+    "rate": 910,
+    "travel": false,
+    "when": {
+     "mode": 2,
+     "a": -10.0,
+     "b": 0.0,
+     "not": false
+    },
+    "site": "0x69251c",
+    "action": "4/17"
+   }
+  ],
+  "2|Motion[9]": [
+   {
+    "rate": 256,
+    "travel": false,
+    "when": null,
+    "site": "0x693e10",
+    "action": "7/1"
+   }
+  ],
+  "0|Motion[8]": [
+   {
+    "rate": 128,
+    "travel": true,
+    "when": null,
+    "site": "0x694a3c",
+    "action": "7/6"
+   }
+  ],
+  "0|Motion[54]": [
+   {
+    "rate": 64,
+    "travel": false,
+    "when": {
+     "mode": 1,
+     "a": 60.0,
+     "b": 0.0,
+     "not": true
+    },
+    "site": "0x696078",
+    "action": "7/17",
+    "rank": {
+     "3": 512
+    }
+   }
+  ],
+  "0|Motion[69]": [
+   {
+    "rate": 1536,
+    "travel": false,
+    "when": null,
+    "site": "0x696720",
+    "action": "7/22",
+    "pitch": {
+     "goal": 10240,
+     "rate": 384
+    }
+   }
+  ],
+  "2|Motion[0]": [
+   {
+    "rate": 256,
+    "travel": false,
+    "when": {
+     "mode": 1,
+     "a": 36.0,
+     "b": 0.0,
+     "not": true
+    },
+    "site": "0x696e38",
+    "action": "7/31"
+   }
+  ],
+  "2|Motion[5]": [
+   {
+    "rate": 910,
+    "travel": false,
+    "when": {
+     "mode": 1,
+     "a": 55.0,
+     "b": 0.0,
+     "not": true
+    },
+    "site": "0x69729c",
+    "action": "7/35"
+   }
+  ],
+  "2|Motion[11]": [
+   {
+    "rate": 64,
+    "travel": false,
+    "when": null,
+    "site": "0x69758c",
+    "action": "7/36"
+   }
+  ],
+  "2|Motion[12]": [
+   {
+    "rate": 64,
+    "travel": false,
+    "when": null,
+    "site": "0x697630",
+    "action": "7/38"
+   }
+  ],
+  "2|Motion[14]": [
+   {
+    "rate": 1024,
+    "travel": false,
+    "when": null,
+    "site": "0x687440",
+    "action": "7/43"
+   }
+  ],
+  "0|Motion[56]": [
+   {
+    "rate": 256,
+    "travel": false,
+    "when": {
+     "mode": 1,
+     "a": 50.0,
+     "b": 0.0,
+     "not": true
+    },
+    "site": "0x697f34",
+    "action": "7/45"
+   }
+  ],
+  "2|Motion[21]": [
+   {
+    "rate": 91,
+    "travel": false,
+    "when": {
+     "mode": 3,
+     "a": 0.0,
+     "b": 60.0,
+     "not": false
+    },
+    "site": "0x698210",
+    "action": "7/66"
+   },
+   {
+    "rate": 91,
+    "travel": false,
+    "when": {
+     "mode": 3,
+     "a": 140.0,
+     "b": 160.0,
+     "not": false
+    },
+    "site": "0x6982b0",
+    "action": "7/66"
+   },
+   {
+    "rate": 91,
+    "travel": false,
+    "when": {
+     "mode": 3,
+     "a": 200.0,
+     "b": 220.0,
+     "not": false
+    },
+    "site": "0x69834c",
+    "action": "7/66"
+   }
+  ],
+  "2|Motion[22]": [
+   {
+    "rate": 128,
+    "travel": false,
+    "when": null,
+    "site": "0x698460",
+    "action": "7/67"
+   }
+  ],
+  "2|Motion[19]": [
+   {
+    "rate": 546,
+    "travel": false,
+    "when": null,
+    "site": "0x698cfc",
+    "action": "7/71"
+   }
+  ],
+  "2|Motion[26]": [
+   {
+    "rate": 336,
+    "travel": false,
+    "when": {
+     "mode": 1,
+     "a": 64.0,
+     "b": 0.0,
+     "not": false
+    },
+    "site": "0x6953f0",
+    "action": "7/80"
+   }
+  ],
+  "2|Motion[28]": [
+   {
+    "rate": 336,
+    "travel": false,
+    "when": {
+     "mode": 1,
+     "a": 64.0,
+     "b": 0.0,
+     "not": false
+    },
+    "site": "0x6953f0",
+    "action": "7/83"
+   }
+  ],
+  "2|Motion[25]": [
+   {
+    "rate": 546,
+    "travel": false,
+    "when": null,
+    "site": "0x698fe0",
+    "action": "7/90"
+   }
+  ],
+  "2|Motion[27]": [
+   {
+    "rate": 546,
+    "travel": false,
+    "when": null,
+    "site": "0x698fe0",
+    "action": "7/91"
+   }
+  ],
+  "0|Motion[61]": [
+   {
+    "rate": 64,
+    "travel": false,
+    "when": null,
+    "action": "13/1",
+    "pitch": {
+     "aim": true,
+     "rate": 256,
+     "add": 1024
+    }
+   }
+  ]
+ }
+}

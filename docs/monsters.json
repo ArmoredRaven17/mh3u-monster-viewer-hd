@@ -1,11 +1,12 @@
 {
  "version": 1,
- "generated": "2026-10-10T21:50:30",
+ "generated": "2026-10-25T03:11:03",
  "_about": {
   "names": "Monster_eng.gmd (arc/ID/ID_arena_eng) string at index = the em number. The index rule matches every archive checked by eye but is NOT yet confirmed from the code.",
   "hideIdx": "mesh-table +0 bit 0 clear (the MHGU draw-mask field; in 3U it is clear on exactly the group 100-106 rows). The 3U draw code that tests it has not been read.",
   "small": "the per-enemy record's flags word bit 0 (mh3u_species.is_large): clear on every monster the Monster List files small and set on every one it files large or elder, across all 72 rows, the one exception being Abyssal Lagiacrus, whose row says small and whose own flag says large. The quest code reads the bit as a monster flag (0x5bd094, 0x856e30); its name is not decoded.",
   "species": "the game's own: the Monster List table in the executable (mh3u_species.py, 72 six-byte rows at 0xba338c, the lookup 0x59ca54) gives each monster a species 0-11. `speciesAbbr` is the label the game itself prints for it (Monster_eng.gmd 128 + species, per 0x9545d0) -- BrdWyv, FlyWyv, BrtWyv, PscWyv, Levthn, FngWyv, FngBst, EldDrg, Lynian, Herbvr, Nptron, Fish -- and `species` is the same species written out by the game, off the Monster List volume item the row points at (\"Flying Wyverns Vol 1\" -> Flying Wyverns); volumes named after one monster (Deviljho, Plesioth) are dropped, and Fish, whose only volume carries its own monster's name, keeps the abbreviation. `speciesFrom` is \"list\" for a monster with its own row, or how the ROM ties it to one; `listSection` (0 small, 1 large, 2 elder, 3) and `listRank` (1-6) come from that row, and are null for a monster taking another's species.",
+  "listRow": "the monster's row in the game's own Monster List (mh3u_species.rows(), 72 rows at 0xba338c), null where it has none; the viewer orders each species by it",
   "sizeBase": "1.0: the monster size tables are not decoded for 3U.",
   "groups": "null: 3U ships no part-visibility (.mpm) file; see partTable.",
   "partTable": "the per-enemy parts table in the executable (mh3u_parts.py): 0xc1c008[em] -> record +0x90, 0x14-byte rows [part, group, cond, mode, param, threshold]; group 255 = the monster's own model, n = the severed piece with that `group`. uEnemy re-applies it every frame (0x82ebd4 -> 0x5c5568 -> 0x852118); a part no row names stays drawn. Parts a monster class sets in its own code are in partCode instead (mh3u_parts_class.py: the same row form, class conditions from 100).",
@@ -20,8 +21,7 @@
    "em082: not listed -- no motion lists (a static prop)",
    "em083: not listed -- no motion lists (a static prop)",
    "em084: not listed -- no motion lists (a static prop)"
-  ],
-  "listRow": "the monster's row in the game's own Monster List (mh3u_species.rows(), 72 rows at 0xba338c), null where it has none; the viewer orders each species by it"
+  ]
  },
  "monsters": [
   {
@@ -1228,13 +1228,13 @@
      "torn": 120
     }
    ],
+   "listRow": 36,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 36
+   "listRank": 4
   },
   {
    "id": "em002",
@@ -2421,13 +2421,13 @@
      "torn": 127
     }
    ],
+   "listRow": 39,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 39
+   "listRank": 4
   },
   {
    "id": "em003",
@@ -3556,13 +3556,13 @@
     }
    },
    "tears": null,
+   "listRow": 28,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3,
-   "listRow": 28
+   "listRank": 3
   },
   {
    "id": "em004",
@@ -4912,13 +4912,13 @@
     }
    },
    "tears": null,
+   "listRow": 44,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 44
+   "listRank": 4
   },
   {
    "id": "em005",
@@ -6211,13 +6211,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 46,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 46
+   "listRank": 5
   },
   {
    "id": "em006",
@@ -7340,13 +7340,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 42,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 42
+   "listRank": 5
   },
   {
    "id": "em007",
@@ -8394,13 +8394,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 67,
    "species": "Brute Wyverns",
    "speciesAbbr": "BrtWyv",
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 6,
-   "listRow": 67
+   "listRank": 6
   },
   {
    "id": "em008",
@@ -9407,13 +9407,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 30,
    "species": "Brute Wyverns",
    "speciesAbbr": "BrtWyv",
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 30
+   "listRank": 4
   },
   {
    "id": "em009",
@@ -10319,13 +10319,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 32,
    "species": "Brute Wyverns",
    "speciesAbbr": "BrtWyv",
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 32
+   "listRank": 5
   },
   {
    "id": "em010",
@@ -10907,13 +10907,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 10,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 10
+   "listRank": 2
   },
   {
    "id": "em011",
@@ -11560,13 +11560,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 11,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 11
+   "listRank": 2
   },
   {
    "id": "em012",
@@ -12312,13 +12312,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 22,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3,
-   "listRow": 22
+   "listRank": 3
   },
   {
    "id": "em013",
@@ -12860,13 +12860,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 12,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 12
+   "listRank": 2
   },
   {
    "id": "em014",
@@ -13632,13 +13632,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 23,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3,
-   "listRow": 23
+   "listRank": 3
   },
   {
    "id": "em015",
@@ -14894,13 +14894,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 52,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 52
+   "listRank": 5
   },
   {
    "id": "em016",
@@ -16125,13 +16125,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 48,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3,
-   "listRow": 48
+   "listRank": 3
   },
   {
    "id": "em017",
@@ -16826,13 +16826,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": 14,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 14
+   "listRank": 2
   },
   {
    "id": "em018",
@@ -18067,13 +18067,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 50,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 50
+   "listRank": 4
   },
   {
    "id": "em019",
@@ -19191,13 +19191,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 55,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 55
+   "listRank": 5
   },
   {
    "id": "em020",
@@ -20116,13 +20116,13 @@
     }
    },
    "tears": null,
+   "listRow": 65,
    "species": "Elder Dragons",
    "speciesAbbr": "EldDrg",
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 5,
-   "listRow": 65
+   "listRank": 5
   },
   {
    "id": "em021",
@@ -20749,13 +20749,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": 15,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 15
+   "listRank": 2
   },
   {
    "id": "em022",
@@ -21117,13 +21117,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": 16,
    "species": "Piscine Wyverns",
    "speciesAbbr": "PscWyv",
    "speciesIdx": 3,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 16
+   "listRank": 2
   },
   {
    "id": "em023",
@@ -21777,13 +21777,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": 2,
    "species": "Herbivores",
    "speciesAbbr": "Herbvr",
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1,
-   "listRow": 2
+   "listRank": 1
   },
   {
    "id": "em024",
@@ -23037,13 +23037,13 @@
      "torn": 128
     }
    ],
+   "listRow": 70,
    "species": "Elder Dragons",
    "speciesAbbr": "EldDrg",
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6,
-   "listRow": 70
+   "listRank": 6
   },
   {
    "id": "em025",
@@ -24117,13 +24117,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 68,
    "species": "Elder Dragons",
    "speciesAbbr": "EldDrg",
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6,
-   "listRow": 68
+   "listRank": 6
   },
   {
    "id": "em026",
@@ -24478,13 +24478,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": 9,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 9
+   "listRank": 2
   },
   {
    "id": "em027",
@@ -25048,13 +25048,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": 0,
    "species": "Herbivores",
    "speciesAbbr": "Herbvr",
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1,
-   "listRow": 0
+   "listRank": 1
   },
   {
    "id": "em028",
@@ -25625,13 +25625,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 3,
    "species": "Herbivores",
    "speciesAbbr": "Herbvr",
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1,
-   "listRow": 3
+   "listRank": 1
   },
   {
    "id": "em029",
@@ -26175,13 +26175,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": 17,
    "species": "Herbivores",
    "speciesAbbr": "Herbvr",
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 17
+   "listRank": 2
   },
   {
    "id": "em030",
@@ -26842,13 +26842,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 6,
    "species": "Lynians",
    "speciesAbbr": "Lynian",
    "speciesIdx": 8,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1,
-   "listRow": 6
+   "listRank": 1
   },
   {
    "id": "em031",
@@ -27509,13 +27509,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 7,
    "species": "Lynians",
    "speciesAbbr": "Lynian",
    "speciesIdx": 8,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 7
+   "listRank": 2
   },
   {
    "id": "em033",
@@ -27927,13 +27927,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 5,
    "species": "Neopteron",
    "speciesAbbr": "Nptron",
    "speciesIdx": 10,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1,
-   "listRow": 5
+   "listRank": 1
   },
   {
    "id": "em034",
@@ -28628,13 +28628,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 1,
    "species": "Herbivores",
    "speciesAbbr": "Herbvr",
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1,
-   "listRow": 1
+   "listRank": 1
   },
   {
    "id": "em035",
@@ -28744,13 +28744,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": null,
    "species": null,
    "speciesAbbr": null,
    "speciesIdx": null,
    "speciesFrom": null,
    "listSection": null,
-   "listRank": null,
-   "listRow": null
+   "listRank": null
   },
   {
    "id": "em036",
@@ -29167,13 +29167,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 4,
    "species": "Neopteron",
    "speciesAbbr": "Nptron",
    "speciesIdx": 10,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 4
+   "listRank": 2
   },
   {
    "id": "em037",
@@ -29590,13 +29590,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": null,
    "species": "Neopteron",
    "speciesAbbr": "Nptron",
    "speciesIdx": 10,
    "speciesFrom": "the record of em036",
    "listSection": null,
-   "listRank": null,
-   "listRow": null
+   "listRank": null
   },
   {
    "id": "em038",
@@ -30013,13 +30013,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": null,
    "species": "Neopteron",
    "speciesAbbr": "Nptron",
    "speciesIdx": 10,
    "speciesFrom": "the record of em036",
    "listSection": null,
-   "listRank": null,
-   "listRow": null
+   "listRank": null
   },
   {
    "id": "em039",
@@ -30436,13 +30436,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": null,
    "species": "Neopteron",
    "speciesAbbr": "Nptron",
    "speciesIdx": 10,
    "speciesFrom": "the record of em036",
    "listSection": null,
-   "listRank": null,
-   "listRow": null
+   "listRank": null
   },
   {
    "id": "em041",
@@ -31838,13 +31838,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 60,
    "species": "Fanged Wyverns",
    "speciesAbbr": "FngWyv",
    "speciesIdx": 5,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 60
+   "listRank": 5
   },
   {
    "id": "em042",
@@ -32722,13 +32722,13 @@
     }
    },
    "tears": null,
+   "listRow": 25,
    "species": "Fanged Beasts",
    "speciesAbbr": "FngBst",
    "speciesIdx": 6,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3,
-   "listRow": 25
+   "listRank": 3
   },
   {
    "id": "em043",
@@ -33631,13 +33631,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 26,
    "species": "Fanged Beasts",
    "speciesAbbr": "FngBst",
    "speciesIdx": 6,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3,
-   "listRow": 26
+   "listRank": 3
   },
   {
    "id": "em044",
@@ -34544,13 +34544,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 27,
    "species": "Fanged Beasts",
    "speciesAbbr": "FngBst",
    "speciesIdx": 6,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 27
+   "listRank": 4
   },
   {
    "id": "em045",
@@ -35313,13 +35313,13 @@
     "conds": {}
    },
    "tears": null,
+   "listRow": 24,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3,
-   "listRow": 24
+   "listRank": 3
   },
   {
    "id": "em046",
@@ -36342,13 +36342,13 @@
     }
    },
    "tears": null,
+   "listRow": 34,
    "species": "Brute Wyverns",
    "speciesAbbr": "BrtWyv",
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 34
+   "listRank": 5
   },
   {
    "id": "em047",
@@ -37475,13 +37475,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 51,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 51
+   "listRank": 4
   },
   {
    "id": "em048",
@@ -38122,13 +38122,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 13,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 13
+   "listRank": 2
   },
   {
    "id": "em049",
@@ -38701,13 +38701,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 20,
    "species": "Herbivores",
    "speciesAbbr": "Herbvr",
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 20
+   "listRank": 2
   },
   {
    "id": "em050",
@@ -39221,13 +39221,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 18,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1,
-   "listRow": 18
+   "listRank": 1
   },
   {
    "id": "em051",
@@ -40363,13 +40363,13 @@
     }
    },
    "tears": null,
+   "listRow": 29,
    "species": "Bird Wyverns",
    "speciesAbbr": "BrdWyv",
    "speciesIdx": 0,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3,
-   "listRow": 29
+   "listRank": 3
   },
   {
    "id": "em052",
@@ -41719,13 +41719,13 @@
     }
    },
    "tears": null,
+   "listRow": 45,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 45
+   "listRank": 4
   },
   {
    "id": "em053",
@@ -43038,13 +43038,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 47,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 47
+   "listRank": 5
   },
   {
    "id": "em054",
@@ -44051,13 +44051,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 31,
    "species": "Brute Wyverns",
    "speciesAbbr": "BrtWyv",
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 31
+   "listRank": 4
   },
   {
    "id": "em055",
@@ -44963,13 +44963,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 33,
    "species": "Brute Wyverns",
    "speciesAbbr": "BrtWyv",
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 33
+   "listRank": 5
   },
   {
    "id": "em056",
@@ -46194,13 +46194,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 49,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 3,
-   "listRow": 49
+   "listRank": 3
   },
   {
    "id": "em057",
@@ -47207,13 +47207,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 56,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 56
+   "listRank": 5
   },
   {
    "id": "em058",
@@ -48336,13 +48336,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 43,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 43
+   "listRank": 5
   },
   {
    "id": "em059",
@@ -49644,13 +49644,13 @@
     }
    },
    "tears": null,
+   "listRow": 57,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 57
+   "listRank": 4
   },
   {
    "id": "em060",
@@ -50952,13 +50952,13 @@
     }
    },
    "tears": null,
+   "listRow": 58,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 58
+   "listRank": 5
   },
   {
    "id": "em061",
@@ -52234,13 +52234,13 @@
     }
    },
    "tears": null,
+   "listRow": 59,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 3,
-   "listRank": 6,
-   "listRow": 59
+   "listRank": 6
   },
   {
    "id": "em062",
@@ -53486,13 +53486,13 @@
      "torn": 120
     }
    ],
+   "listRow": 37,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 37
+   "listRank": 4
   },
   {
    "id": "em063",
@@ -54738,13 +54738,13 @@
      "torn": 120
     }
    ],
+   "listRow": 38,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 38
+   "listRank": 5
   },
   {
    "id": "em064",
@@ -55943,13 +55943,13 @@
      "torn": 127
     }
    ],
+   "listRow": 40,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 4,
-   "listRow": 40
+   "listRank": 4
   },
   {
    "id": "em065",
@@ -57148,13 +57148,13 @@
      "torn": 127
     }
    ],
+   "listRow": 41,
    "species": "Flying Wyverns",
    "speciesAbbr": "FlyWyv",
    "speciesIdx": 1,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 41
+   "listRank": 5
   },
   {
    "id": "em066",
@@ -58318,13 +58318,13 @@
      "torn": 127
     }
    ],
+   "listRow": 62,
    "species": "Piscine Wyverns",
    "speciesAbbr": "PscWyv",
    "speciesIdx": 3,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 62
+   "listRank": 5
   },
   {
    "id": "em067",
@@ -59535,13 +59535,13 @@
      "torn": 127
     }
    ],
+   "listRow": 63,
    "species": "Piscine Wyverns",
    "speciesAbbr": "PscWyv",
    "speciesIdx": 3,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 63
+   "listRank": 5
   },
   {
    "id": "em068",
@@ -60821,13 +60821,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 53,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 53
+   "listRank": 5
   },
   {
    "id": "em069",
@@ -61838,13 +61838,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 54,
    "species": "Leviathans",
    "speciesAbbr": "Levthn",
    "speciesIdx": 4,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 6,
-   "listRow": 54
+   "listRank": 6
   },
   {
    "id": "em070",
@@ -62842,13 +62842,13 @@
     }
    },
    "tears": null,
+   "listRow": 66,
    "species": "Elder Dragons",
    "speciesAbbr": "EldDrg",
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6,
-   "listRow": 66
+   "listRank": 6
   },
   {
    "id": "em071",
@@ -63892,13 +63892,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": null,
    "species": "Brute Wyverns",
    "speciesAbbr": "BrtWyv",
    "speciesIdx": 2,
    "speciesFrom": "uEm007 of em007",
    "listSection": null,
-   "listRank": null,
-   "listRow": null
+   "listRank": null
   },
   {
    "id": "em072",
@@ -65290,13 +65290,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 61,
    "species": "Fanged Wyverns",
    "speciesAbbr": "FngWyv",
    "speciesIdx": 5,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 61
+   "listRank": 5
   },
   {
    "id": "em073",
@@ -66307,13 +66307,13 @@
     }
    },
    "tears": null,
+   "listRow": 35,
    "species": "Brute Wyverns",
    "speciesAbbr": "BrtWyv",
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 35
+   "listRank": 5
   },
   {
    "id": "em074",
@@ -67351,13 +67351,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 64,
    "species": "Brute Wyverns",
    "speciesAbbr": "BrtWyv",
    "speciesIdx": 2,
    "speciesFrom": "list",
    "listSection": 1,
-   "listRank": 5,
-   "listRow": 64
+   "listRank": 5
   },
   {
    "id": "em075",
@@ -68527,13 +68527,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 71,
    "species": "Elder Dragons",
    "speciesAbbr": "EldDrg",
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6,
-   "listRow": 71
+   "listRank": 6
   },
   {
    "id": "em076",
@@ -68960,13 +68960,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": 19,
    "species": "Fanged Beasts",
    "speciesAbbr": "FngBst",
    "speciesIdx": 6,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 2,
-   "listRow": 19
+   "listRank": 2
   },
   {
    "id": "em077",
@@ -69552,13 +69552,13 @@
    "partTable": null,
    "partCode": null,
    "tears": null,
+   "listRow": 21,
    "species": "Herbivores",
    "speciesAbbr": "Herbvr",
    "speciesIdx": 9,
    "speciesFrom": "list",
    "listSection": 0,
-   "listRank": 1,
-   "listRow": 21
+   "listRank": 1
   },
   {
    "id": "em078",
@@ -70131,13 +70131,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": null,
    "species": "Herbivores",
    "speciesAbbr": "Herbvr",
    "speciesIdx": 9,
    "speciesFrom": "the record of em049",
    "listSection": null,
-   "listRank": null,
-   "listRow": null
+   "listRank": null
   },
   {
    "id": "em085",
@@ -71239,13 +71239,13 @@
    ],
    "partCode": null,
    "tears": null,
+   "listRow": 69,
    "species": "Elder Dragons",
    "speciesAbbr": "EldDrg",
    "speciesIdx": 7,
    "speciesFrom": "list",
    "listSection": 2,
-   "listRank": 6,
-   "listRow": 69
+   "listRank": 6
   }
  ]
 }

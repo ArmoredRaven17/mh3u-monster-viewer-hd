@@ -539,6 +539,45 @@ input[type=range]{width:100%;accent-color:var(--accent)}
         <div class="panel-body">
           <div class="field"><label for="monList">Motion List</label><select id="monList"></select></div>
           <div class="field"><label for="monClip">Clip</label><select id="monClip"></select></div>
+          <!-- THE GROUND (as the MHGU viewer's Ground control; Raven, 2026-10-24: "dust effect from walking ... We will also need to
+               implement things like the added animation conditions"): the word info+0x140 that 3U's class code (slot 53's gate,
+               & 6) and the .esq reader (0x332e8c) test to pick the footstep dust. A change replays the clip. WORKING labels, by
+               the bits: Raven names them. -->
+          <div class="field" id="monGroundRow" title="The ground under the monster: the word (info+0x140) the game's code tests to pick its footstep effects. Changing it replays the clip. Working names.">
+            <label for="monGroundType">Ground</label>
+            <select id="monGroundType"></select></div>
+          <!-- THE RAGE FLAG for the effects (Raven, 2026-10-24: "add in everything shared"): +0x954 == 1 (0x82adb0), which 3U's
+               class C rage emission reads (notes/effects-em001.md 3b). Shown for a monster whose effects read it. The same
+               value as the Hit Zones panel's Rage control (state.zoneIn.rage), so the two never disagree. -->
+          <div class="field" id="monRageRow" hidden title="The rage flag (+0x954 == 1) the monster's code reads: its rage effects play while it is on (and the hit zones' Rage control is the same switch). Changing it replays the clip.">
+            <label for="monRage">Rage</label>
+            <select id="monRage"><option value="0">Off</option><option value="1">On</option></select></div>
+          <!-- THE MONSTER'S ATTACK SHAPES (as the MHGU viewer's option; 3U ships the same pair: em_hitdata00.htd / em_hitsize00.hts):
+               render/attack-hitboxes.js, the records 3U's code arms for the playing clip on their joints, live in their frame window.
+               Red can hit the hunters, orange only other monsters, blue neither. Hover a shape for its record. Working labels. -->
+          <div class="field" id="monAtkBoxRow" hidden title="The attack records the monster arms for this clip (its hitdata / hitsize files, armed as 3U's code arms them): spheres and capsules on their joints, live in their frame window. Red can hit the hunters, orange only other monsters, blue neither. Hover a shape for its power, element and status bits, and kind. Working names.">
+            <label for="monAtkBox">Attack Hitboxes</label>
+            <select id="monAtkBox"><option value="off">Off</option><option value="armed">Armed only</option><option value="all">All (unarmed greyed)</option></select></div>
+          <!-- THE QUEST RANK (as the MHGU viewer's option; Raven, 2026-10-24: "add in everything shared"; notes/options-3u.md 1): the rank
+               value 3U keeps at [[0xc1bff8]+0x4044] (quest data byte +0xf7, 0x15bc4c): 0 low (village / arena), 1 low (port), 2 high,
+               3 G. Rathian's family reads it for the turn of actions 7/17 / 7/78 at G. Shown for a monster whose code reads it. -->
+          <div class="field" id="monQuestRankRow" hidden title="The quest rank the monster's code reads ([[0xc1bff8]+0x4044]: 0 / 1 low, 2 high, 3 G). Changing it replays the clip.">
+            <label for="monQuestRank">Quest Rank</label>
+            <select id="monQuestRank"></select></div>
+          <!-- THE HUNTER (as the MHGU viewer's option; Raven, 2026-10-24: "Add controls + turn by code"; notes/target-em001.md,
+               options-3u.md 3): the stand-in hunter the monster turns toward, a point placed when a clip starts, from the monster's own
+               position and facing: a distance, a side and a height. Default: 1000 ahead on the floor, the game's own point when
+               there is no target (kind 0xff), so a clip plays as its animation does. 3U reads the hunter's height (the pitch of the
+               dives, the climb), so it has one; it has no shell-hunter contact test, so there is no Hunter Body. -->
+          <div class="field" id="monHunterRow" hidden title="The stand-in hunter the monster's code turns toward: its distance from the monster when the clip starts (game units). Default: 1000 ahead, the game's own point with no target. Changing it replays the clip.">
+            <label for="monHunterDist">Hunter</label>
+            <select id="monHunterDist"></select></div>
+          <div class="field" id="monHunterSideRow" hidden title="The side of the monster the stand-in hunter stands on: the monster's facing when the clip starts, turned by the angle.">
+            <label for="monHunterSide">Hunter Side</label>
+            <select id="monHunterSide"></select></div>
+          <div class="field" id="monHunterHeightRow" hidden title="The stand-in hunter's height above the floor (game units): the monster's aimed pitch reads it.">
+            <label for="monHunterHeight">Hunter Height</label>
+            <select id="monHunterHeight"></select></div>
           <div id="anim" class="idle">
             <div class="transport">
               <input id="animScrub" type="range" min="0" max="1" step="1" value="0" title="Scrub through the frames">
@@ -1172,6 +1211,10 @@ if (document.fonts) document.fonts.load('1em MHFU').then(() => {
 //   models/monsters  one glb per model      poses/monsters  one glb per motion list
 import * as THREE from 'three';
 import { createStage } from './render/stage.js';
+import { Fx3uRuntime } from './render/fx3u/runtime.js';
+import { loadAttackData, buildAttackHitboxes, hasAttackData } from './render/attack-hitboxes.js';
+import { SeverPiece3U, SEVER_3U, landingEffect } from './render/sever3u.js';
+import { gidBonesOf } from './render/skeleton.js';
 import { createFx } from './render/fx.js';
 import { renderCameraFor, LENS_DEFAULT, LENS_TYPES, SQUEEZES } from './render/lens.js';
 import { initAssets, loadJson } from './render/assets.js';
@@ -1227,6 +1270,16 @@ await loadMaterialsDb();
 const viewport = document.getElementById('viewport');
 const stage = createStage(viewport, { margin: MARGIN });
 const { renderer, scene, camera, controls, world } = stage;
+// MONSTER EFFECTS (render/fx3u): 3U's own effect code, hand-translated, on the Wii U effect files. effects/index.json
+// lists the monsters with an effect set, so no other monster asks for one.
+const fx3u = new Fx3uRuntime(scene);
+const FX_INDEX = await loadJson('effects/index.json').catch(() => ({ monsters: [] }));
+// a request's joint is a global bone id (the effect hangs off the bone the vertices bind to); the root is the monster
+fx3u.bind(gid => { const b = mounted.main && gidBonesOf(mounted.main).find(x => x.gid === gid); return b ? (b.leaf || b.node) : null; },
+          () => mounted.main, () => monsterFloorY(),
+          // the rage flag (+0x954) as the Parts panel's Rage control sets it for the hit zones
+          () => { const e = entry(), rec = e && HITZONES.monsters && HITZONES.monsters[e.id];
+                  return ((rec ? zoneSt(e, rec).flag954 : 0) || (state.zoneIn.rage | 0)) ? 1 : 0; });
 const head = stage.lights.head;
 
 // post-processing (render/fx.js, the MHGU viewers'), switched in only when an effect is on: with every
@@ -1364,7 +1417,8 @@ function inLoopTravel(out){
 }
 function monsterTravel(out){
   inLoopTravel(out);
-  out.x += world.position.x; out.z += world.position.z;
+  const c = Math.cos(world.rotation.y), sn = Math.sin(world.rotation.y), x = out.x, z = out.z;
+  out.x = x * c + z * sn + world.position.x; out.z = -x * sn + z * c + world.position.z;
   return out;
 }
 // THE WALK CARRIES OVER. Raven, 2026-09-18: "I noticed when an animation loops, it reverts the monster's position, so
@@ -1382,10 +1436,12 @@ const lastInLoop = new THREE.Vector3();        // the in-loop travel of the last
 let carryAction = null, carryTime = 0;
 function shiftWorld(dx, dz){
   if (!dx && !dz) return;
-  world.position.x += dx; world.position.z += dz;
+  // (dx, dz) is the monster's own (local) travel: turned by its facing (THE TURN, below) into the scene's axes
+  const c = Math.cos(world.rotation.y), sn = Math.sin(world.rotation.y);
+  world.position.x += dx * c + dz * sn; world.position.z += -dx * sn + dz * c;
   world.updateMatrixWorld();
   const s = world.scale.x || 1;
-  for (const [k, g] of Object.entries(mounted)) if (k !== 'main'){ g.position.x -= dx / s; g.position.z -= dz / s; }
+  for (const [k, g] of Object.entries(mounted)) if (k !== 'main' && !g.userData.dropped){ g.position.x -= dx / s; g.position.z -= dz / s; }   // a dropped piece lies in the scene
 }
 // the playing clip's pass, sampled from its first frame to its last with the hip free; returns the first frame's
 // in-loop travel, and leaves the clip at its start
@@ -2851,9 +2907,10 @@ function applyPartState(){
     // to the root bone alone, so attaching it would hang it across the body -- so it stays a prop.
     const bit = pieceCutBit(e.partTable, p.group);
     const shed = !!(bit && (cutSt.cut & bit));
+    if (!shed && g.userData.dropped) undropPiece(g);
     if ((shed || !bit) && g.userData.attached) detachPiece(g);
     else if (!shed && bit && !g.userData.attached && mounted.main) attachPiece(g, p, mounted.main, e);
-    g.visible = (bit && !shed) ? true : !!state.tail;
+    g.visible = (bit && !shed) ? true : (g.userData.dropped || !!state.tail);
   }
   // applyParts writes o.visible from the part table, so the class toggle runs after it
   for (const g of Object.values(mounted)) setUndefinedMaterialVisible(g, state.undef);
@@ -2861,7 +2918,7 @@ function applyPartState(){
 function clearMounts(){
   // give the materials and geometry back: a sweep steps through every monster in the game
   for (const k of Object.keys(mounted)){
-    world.remove(mounted[k]); releaseMonster(mounted[k]); delete mounted[k];
+    mounted[k].removeFromParent(); releaseMonster(mounted[k]); delete mounted[k];
   }
 }
 // The Loading overlay is a SCREEN, not a caption. Showing the text on its own left the
@@ -2945,10 +3002,14 @@ async function mount(){
       for (const pair of extra) releaseMonster(pair[1]);
       return;
     }
+    sever = null;
     clearMounts();
     world.position.x = 0; world.position.z = 0; lastInLoop.set(0, 0, 0);   // a new monster starts at the origin
+    world.position.y = 0; world.rotation.set(0, 0, 0, 'YXZ'); facing.yaw = 0; facing.pitch = 0; hunterStale = true;
     forgetTravel();
     world.add(main); mounted.main = main;
+    if ((FX_INDEX.monsters || []).includes(state.id)) await fx3u.load(state.id); else { fx3u.clear(); fx3u.set = null; }
+    paintRage(); paintHunterRows(); loadAttackData('').then(paintAtkBoxRow);
     for (const [name, g] of extra){ world.add(g); mounted[name] = g; }
     applySize();
     buildGroups(); applyPartState(); paintAbout(); applyUndef(); applyProxy();
@@ -2964,7 +3025,7 @@ async function mount(){
 // this takes the pose driver's bounds where it has them, exactly as frameAll() does.
 function placeParts(){
   // an attached piece is skinned to the body's bones and stays where they put it
-  const names = Object.keys(mounted).filter(k => k !== 'main' && !mounted[k].userData.attached);
+  const names = Object.keys(mounted).filter(k => k !== 'main' && !mounted[k].userData.attached && !mounted[k].userData.dropped);
   if (!names.length || !mounted.main) return;
   // Measure the body from its POSED BONES, not from pose.bounds. The driver computes those
   // bounds before step() applies the ground-lock shift, so they disagree with what is actually
@@ -3700,6 +3761,7 @@ async function play(){
     return;
   }
   pose.loopMode = () => (state.loop ? 'repeat' : 'once');
+  hunterStale = true;                      // THE HUNTER: placed again from where the monster stands as this clip starts
   // a list borrowed from another monster is retargeted onto this model by global bone id first -- see clipFor
   const clip3 = await clipFor(l, c.clip, e.glb);
   if (mine !== playSeq) return;          // a later selection won while this one was loading
@@ -3782,6 +3844,280 @@ animLoopBtn.onclick = () => {
   saveState();
 };
 document.getElementById('animReplay').onclick = () => play();
+
+// THE GROUND (the Ground control above). info+0x140, READ consumers: slot 53's gate 0x686210 (& 6: 0 -> qe000_301 rows,
+// 6 -> qe001_301 rows) and the .esq reader 0x332e8c (& 0x1220 or 0 -> list 0, & 0x406 -> list 1, & 0x2080 -> list 2). The
+// types offered are the classes those tests tell apart. Which floor each is (sand, snow, mud ...) is NOT READ: working
+// labels by the bits, for Raven to name.
+const GROUND_TYPES = [
+  { key: 'plain', label: 'Plain floor',            flags: 0 },
+  { key: 'g6',    label: 'Ground A (0x6)',         flags: 0x6 },
+  { key: 'g2080', label: 'Ground B (0x2080)',      flags: 0x2080 },
+  // the sever's landing effect (sever3u.js landingEffect, 0x828ee8): & 0x1220 -> qe000_301, which plain floor (0) does not get
+  { key: 'g1220', label: 'Ground C (0x1220)',      flags: 0x1220 },
+];
+function groundNow(){ return GROUND_TYPES.find(g => g.key === state.ground) || GROUND_TYPES[0]; }
+function setGround(key){
+  state.ground = GROUND_TYPES.some(g => g.key === key) ? key : 'plain';
+  const g = groundNow(), sel = document.getElementById('monGroundType');
+  if (sel && sel.value !== g.key) sel.value = g.key;
+  fx3u.groundFlags = g.flags;
+}
+{
+  const sel = document.getElementById('monGroundType');
+  sel.innerHTML = GROUND_TYPES.map(g => '<option value="' + g.key + '">' + g.label + '</option>').join('');
+  // a request is tested when it fires, so the clip is played again from its first frame, as Replay does
+  sel.onchange = () => { setGround(sel.value); fx3u.clear(); play(); };
+  setGround(state.ground);
+}
+window.__ground = { types: GROUND_TYPES, set: setGround, now: () => groundNow() };
+// THE ATTACK HITBOXES (render/attack-hitboxes.js; notes/attack-em001.md): the playing clip's armed records, by its key
+// ('<list>|Motion[N]') and the motion frame the game counts (fx3u.motionFrame: a _loop clip starts at its loop frame)
+let atkBoxes = null, atkMode = 'off', atkRowFor = null;
+document.getElementById('monAtkBox').onchange = e => { atkMode = e.target.value; stepAttackBoxes(); };
+function paintAtkBoxRow(){ document.getElementById('monAtkBoxRow').hidden = !hasAttackData(state.id); }
+loadAttackData('').then(paintAtkBoxRow);
+function stepAttackBoxes(){
+  if (atkRowFor !== state.id){ atkRowFor = state.id; paintAtkBoxRow(); }
+  const root = mounted.main;
+  if (atkMode === 'off' || !root){ if (atkBoxes){ scene.remove(atkBoxes); atkBoxes.userData.dispose(); atkBoxes = null; } return; }
+  if (!atkBoxes || atkBoxes.userData.root !== root || atkBoxes.userData.mon !== state.id){
+    if (atkBoxes){ scene.remove(atkBoxes); atkBoxes.userData.dispose(); }
+    atkBoxes = buildAttackHitboxes(root, state.id, (entry() || {}).boneNodes);
+    atkBoxes.userData.root = root; atkBoxes.userData.mon = state.id;
+    scene.add(atkBoxes);
+  }
+  const act = pose.action, clipName = act && act.getClip ? act.getClip().name : null;
+  const mf = clipName ? fx3u.motionFrame(state.list, clipName, act.time) : null;
+  const e = entry(), rec = e && HITZONES.monsters && HITZONES.monsters[e.id];
+  atkBoxes.userData.update(mf ? mf.list + '|Motion[' + mf.index + ']' : null, mf ? mf.frame : 0,
+                           { mode: atkMode, off: rec ? zoneOffNow(e, rec) : 0 });
+}
+// the hover tooltip: what the attack shape under the pointer is, while the overlay is on
+{
+  const tip = document.createElement('div');
+  tip.id = 'atkTip';
+  tip.style.cssText = 'position:fixed;z-index:50;pointer-events:none;white-space:pre;font:12px/1.35 system-ui,sans-serif;'
+    + 'padding:6px 8px;border-radius:6px;background:rgba(20,20,24,.92);color:#f2f2f2;box-shadow:0 2px 8px rgba(0,0,0,.4);display:none';
+  document.body.appendChild(tip);
+  const el = renderer.domElement;
+  el.addEventListener('pointermove', e => {
+    if (!atkBoxes || atkMode === 'off' || e.buttons){ tip.style.display = 'none'; return; }
+    const box = el.getBoundingClientRect();
+    const hit = atkBoxes.userData.pick(e.clientX - box.left, e.clientY - box.top, lensCamera(), box.width, box.height);
+    if (!hit){ tip.style.display = 'none'; return; }
+    tip.textContent = hit.text;
+    tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY + 14) + 'px';
+    tip.style.display = 'block';
+  });
+  el.addEventListener('pointerleave', () => { tip.style.display = 'none'; });
+}
+// THE QUEST RANK and THE HUNTER (the controls above; notes/options-3u.md). TURNS (docs/turns.json, wiiu_turn_export.py): per
+// monster, per '<list>|Motion[N]', the turn rows of the action the motion plays (its first in the census).
+const TURNS = await loadJson('turns.json').catch(() => ({}));
+const QUEST_RANKS = [[3, 'G (3)'], [2, 'High (2)'], [1, 'Low, port (1)'], [0, 'Low, village / arena (0)']];
+const HUNTER_DISTS = [[-1, 'Default (1000 ahead)'], [0, 'At the monster (0)'], [400, 'Near (400)'], [1200, 'Mid (1200)'], [2500, 'Far (2500)']];
+const HUNTER_SIDES = [[0, 'Ahead (0\u00b0)'], [45, 'Left 45\u00b0'], [90, 'Left 90\u00b0'], [135, 'Left 135\u00b0'], [180, 'Behind (180\u00b0)'],
+                      [-135, 'Right 135\u00b0'], [-90, 'Right 90\u00b0'], [-45, 'Right 45\u00b0']];
+const HUNTER_HEIGHTS = [[0, 'Floor (0)'], [500, '500 above'], [1500, '1500 above'], [-500, '500 below']];
+const pickOf = (list, v, d) => list.some(([x]) => x === v) ? v : d;
+const questRank = () => pickOf(QUEST_RANKS, state.questRank, 3);
+const hunterDist = () => pickOf(HUNTER_DISTS, state.hunterDist, -1);
+const hunterSide = () => pickOf(HUNTER_SIDES, state.hunterSide, 0);
+const hunterHeight = () => pickOf(HUNTER_HEIGHTS, state.hunterHeight, 0);
+function paintHunterRows(){
+  const T = TURNS[state.id];
+  const readsRank = !!T && Object.values(T).some(rows => rows.some(r => r.rank));
+  document.getElementById('monQuestRankRow').hidden = !readsRank;
+  for (const id of ['monHunterRow', 'monHunterSideRow', 'monHunterHeightRow']) document.getElementById(id).hidden = !T;
+  for (const [id, list, get] of [['monQuestRank', QUEST_RANKS, questRank], ['monHunterDist', HUNTER_DISTS, hunterDist],
+                                 ['monHunterSide', HUNTER_SIDES, hunterSide], ['monHunterHeight', HUNTER_HEIGHTS, hunterHeight]])
+    document.getElementById(id).value = String(get());
+}
+for (const [id, list, key] of [['monQuestRank', QUEST_RANKS, 'questRank'], ['monHunterDist', HUNTER_DISTS, 'hunterDist'],
+                               ['monHunterSide', HUNTER_SIDES, 'hunterSide'], ['monHunterHeight', HUNTER_HEIGHTS, 'hunterHeight']]){
+  const sel = document.getElementById(id);
+  sel.innerHTML = list.map(([v, l]) => '<option value="' + v + '">' + l + '</option>').join('');
+  sel.onchange = () => { state[key] = +sel.value; saveState(); hunterStale = true; fx3u.clear(); play(); };
+}
+// THE HUNTER: a point in the scene (view units), placed from the monster's root position and facing when a clip starts
+const hunterPt = new THREE.Vector3();
+let hunterStale = true;
+const _root = new THREE.Vector3();
+function monsterRoot(out){ monsterTravel(out); out.y = world.position.y; return out; }
+function placeHunter(){
+  monsterRoot(_root);
+  const d = (hunterDist() < 0 ? 1000 : hunterDist()) * 0.01, a = world.rotation.y + hunterSide() * Math.PI / 180;
+  hunterPt.set(_root.x + d * Math.sin(a), monsterFloorY() + hunterHeight() * 0.01, _root.z + d * Math.cos(a));
+  hunterMark.position.copy(hunterPt);
+  hunterMark.visible = !!TURNS[state.id] && (hunterDist() >= 0 || hunterSide() !== 0 || hunterHeight() !== 0);
+  hunterStale = false;
+}
+// the stand-in's marker: a hunter-sized capsule (170 tall, viewer units 1.7), shown when it is not at its default point
+const hunterMark = new THREE.Mesh(new THREE.CapsuleGeometry(0.3, 1.1, 4, 12),
+  new THREE.MeshBasicMaterial({ color: 0x4fc3f7, transparent: true, opacity: 0.55, depthWrite: false }));
+hunterMark.geometry.translate(0, 0.85, 0); hunterMark.visible = false; hunterMark.name = 'stand-in-hunter';
+scene.add(hunterMark);
+// THE TURN (0x8357b0 / 0x8392d8, READ): each motion frame the active rows step the yaw toward the hunter's x/z by
+// trunc(rate x 0.5) (motion speed 1), snapping when closer than one step; a pitch row steps the body pitch the same way
+// toward its goal (rate x 0.5: INFERRED, as the yaw). The facing is the world group's rotation (order YXZ: yaw, then pitch
+// about the turned X; positive pitch tips +Z down, 0x586b2c), turned about the point the monster stands on, so travel
+// carries on along it. A clip with no pitch row starts level (a viewer choice: what levels the body is not read).
+const facing = { yaw: 0, pitch: 0 };
+let turnPrev = null;
+const U16 = Math.PI * 2 / 65536;
+function applyFacing(){
+  const v = inLoopTravel(new THREE.Vector3());
+  const before = v.clone().applyQuaternion(world.quaternion);
+  world.rotation.set((facing.pitch << 16 >> 16) * U16, facing.yaw * U16, 0, 'YXZ');
+  world.updateMatrixWorld();
+  world.position.add(before).sub(v.applyQuaternion(world.quaternion));
+  world.updateMatrixWorld();
+}
+function turnActive(r, f, total){
+  const w = r.when;
+  if (!w) return true;
+  let t;
+  if (w.mode === 1) t = f >= w.a;
+  else if (w.mode === 2) t = f >= total + w.a;
+  else if (w.mode === 3) t = f >= w.a && f < w.b;
+  else t = Math.floor(f) === w.a;
+  return w.not ? !t : t;
+}
+const stepToward = (cur, goal, rate) => {
+  const st = Math.trunc(rate * 0.5), d = (goal - cur) & 0xffff, sd = d >= 0x8000 ? d - 0x10000 : d;
+  return Math.abs(sd) < st ? goal & 0xffff : (cur + (sd > 0 ? st : -st)) & 0xffff;
+};
+function stepTurns(){
+  const T = TURNS[state.id], act = pose.action;
+  if (!T || !act || !mounted.main) return false;
+  if (hunterStale) placeHunter();
+  const mf = fx3u.motionFrame(state.list, act.getClip().name, act.time);
+  if (!mf) return false;
+  const key = mf.list + '|Motion[' + mf.index + ']', rows = T[key] || [];
+  const f = Math.floor(mf.frame);
+  if (!turnPrev || turnPrev.key !== key || f < turnPrev.f){
+    if (!rows.some(r => r.pitch) && facing.pitch){ facing.pitch = 0; applyFacing(); }
+    turnPrev = { key, f: f - 1 };
+  }
+  if (f <= turnPrev.f || !rows.length){ turnPrev.f = Math.max(turnPrev.f, f); return false; }
+  const mot = ((fx3u.set && fx3u.set.motions) || {})[mf.list] || {};
+  const total = (mot[mf.index] || [act.getClip().duration * 60])[0];
+  const yaw0 = facing.yaw, pitch0 = facing.pitch;
+  for (let g = turnPrev.f + 1; g <= f; g++){
+    for (const r of rows){
+      if (!turnActive(r, g, total)) continue;
+      monsterRoot(_root);
+      const dx = hunterPt.x - _root.x, dz = hunterPt.z - _root.z;
+      const rk = r.rank ? Object.entries(r.rank).filter(([q]) => questRank() >= +q).map(([, v]) => v).pop() : null;
+      if (dx || dz) facing.yaw = stepToward(facing.yaw, Math.round(Math.atan2(dx, dz) / U16) & 0xffff, rk || r.rate);
+      if (r.pitch){
+        let goal = r.pitch.goal;
+        if (r.pitch.aim){
+          const hip = gidBonesOf(mounted.main).find(b => b.gid === 0);
+          const my = hip ? new THREE.Vector3().setFromMatrixPosition((hip.leaf || hip.node).matrixWorld).y : _root.y;
+          goal = (Math.round(Math.atan2(-(hunterPt.y - my), Math.hypot(dx, dz)) / U16) + (r.pitch.add | 0)) & 0xffff;
+          if (goal > 0x3000) goal = 0x3000;                                   // clamped unsigned (0x696580)
+        }
+        facing.pitch = stepToward(facing.pitch, goal, r.pitch.rate);
+      }
+    }
+  }
+  turnPrev.f = f;
+  if (facing.yaw === yaw0 && facing.pitch === pitch0) return false;
+  applyFacing();
+  return true;
+}
+window.__hunter = { point: () => hunterPt.toArray(), facing: () => Object.assign({}, facing), turns: () => TURNS[state.id] || null, step: () => stepTurns(),
+                    set: (o) => { for (const k of ['questRank', 'hunterDist', 'hunterSide', 'hunterHeight']) if (o[k] !== undefined) state[k] = o[k];
+                                  paintHunterRows(); hunterStale = true; } };
+// THE SEVERED PIECE (render/sever3u.js; notes/sever-em001.md, 3U's own code). The tail reaction (10, 0xca) cuts on its
+// first frame (0x82888c: the landing point G = the monster's position + (0, height x S, 0)); the sever bit is set the
+// next game tick and the piece spawns the tick after (0x82e008) at the monster joint, flies a ballistic arc tumbling about
+// X onto G (0x828ee8), plays the ground's landing effect, and lies there, yaw only, until the monster is removed. The
+// viewer: the clip SEVER_3U[id].motions[0] drops the piece each time it starts (as the MHGU viewer drops its cut tail),
+// setting the Parts panel's cut row for the piece; the piece then lies where it landed for as long as that row says
+// cut, out in the scene, so the monster's walk and turn leave it behind. A tick is 2 frames at 60 Hz (INFERRED, 30 fps).
+let sever = null;                      // { g, flight, key, frame0, fired, rec }
+const SEVER_STEP = 2;
+function severKeyOf(rec){ const m = rec.motions[0]; return Math.floor(m / 100) + '|Motion[' + (m % 100) + ']'; }
+function setPieceCut(e, piece){
+  const bit = pieceCutBit(e.partTable, piece.group);
+  const c = bit && partCtl.find(x => x.key.startsWith('cut') && (x.bit & bit));
+  if (!c || state.parts[c.key]) return;
+  const sel = monGroupsEl.querySelector('.field[data-row="' + c.key + '"] select');
+  if (sel){ sel.value = String(c.values.find(v => v) ?? 1); sel.dispatchEvent(new Event('change', { bubbles: true })); }
+  else { state.parts[c.key] = 1; applyPartState(); }
+}
+function undropPiece(g){
+  world.add(g); g.position.set(0, 0, 0); g.quaternion.identity(); g.scale.set(1, 1, 1);
+  g.userData.dropped = false;
+  if (sever && sever.g === g) sever = null;
+}
+function stepSever(){
+  const e = entry(), rec = e && SEVER_3U[state.id], act = pose.action;
+  if (sever && sever.g.userData.dropped && sever.flight) poseSever();
+  if (!rec || !act || !mounted.main) return;
+  const piece = (e.parts || []).find(p => p.name === rec.piece), g = piece && mounted[piece.name];
+  if (!g) return;
+  const mf = fx3u.motionFrame(state.list, act.getClip().name, act.time);
+  const key = mf ? mf.list + '|Motion[' + mf.index + ']' : null;
+  if (key !== severKeyOf(rec)){ if (sever) sever.key = null; return; }
+  const f = Math.floor(mf.frame);
+  // a new pass of the cut clip: cut now, spawn two ticks on
+  if (!sever || sever.key !== key || f < sever.last){
+    sever = { g, rec, key, frame0: null, last: f, flight: sever && sever.g === g ? sever.flight : null };
+    if (f < SEVER_STEP) setPieceCut(e, piece);
+  }
+  sever.last = f;
+  if (sever.frame0 === null){
+    if (f < 2 * SEVER_STEP) return;
+    setPieceCut(e, piece);
+    // spawn (0x82e008): J and its rotation from the posed body, t from the piece's own joint, G from where the monster stands
+    const bones = gidBonesOf(mounted.main), jb = bones.find(b => b.gid === rec.joint);
+    const pb = gidBonesOf(g).find(b => b.gid === rec.joint);
+    if (!jb) return;
+    const jn = jb.leaf || jb.node; jn.updateWorldMatrix(true, false);
+    const Jp = new THREE.Vector3(), Jq = new THREE.Quaternion(), Js = new THREE.Vector3();
+    jn.matrixWorld.decompose(Jp, Jq, Js);
+    const t = pb ? (pb.leaf || pb.node).position.toArray().map(v => v * 100) : [0, 0, 0];
+    monsterRoot(_root);
+    const S = world.scale.x || 1;
+    sever.flight = new SeverPiece3U({ J: Jp.toArray().map(v => v / 0.01), jointQuat: Jq.toArray(), t,
+      monsterPos: [_root.x / 0.01, monsterFloorY() / 0.01, _root.z / 0.01], yaw: facing.yaw, S, rec, step: SEVER_STEP });
+    sever.frame0 = f; sever.fired = false;
+    if (g.userData.attached) detachPiece(g);
+    scene.attach(g); g.userData.dropped = true; g.visible = true;
+  }
+  const landed = sever.flight.advance(f - sever.frame0);
+  poseSever();
+  if (landed && !sever.fired){
+    sever.fired = true;
+    const fx = landingEffect(fx3u.groundFlags | 0);
+    const G = sever.flight.G;
+    if (fx) fx3u.play(fx3u.pathOf(fx.efl), fx3u.pinnedAt(new THREE.Vector3(G[0] * 0.01, G[1] * 0.01, G[2] * 0.01)),
+                      { mask: fx.mask, scale: rec.fxScale });
+  }
+}
+function poseSever(){
+  const o = sever.flight.pose(), g = sever.g;
+  g.position.set(o.position[0] * 0.01, o.position[1] * 0.01, o.position[2] * 0.01);
+  g.quaternion.set(o.quaternion[0], o.quaternion[1], o.quaternion[2], o.quaternion[3]);
+  g.scale.setScalar(o.scale);
+}
+window.__sever = { now: () => sever && { key: sever.key, frame0: sever.frame0, landed: sever.flight && sever.flight.landed,
+                                        G: sever.flight && sever.flight.G, pose: sever.flight && sever.flight.pose() },
+                   step: () => stepSever() };
+// THE RAGE FLAG (the Rage control above): shown when the mounted monster's effects read it (effects/<em>.json triggers.rage)
+function paintRage(){
+  const row = document.getElementById('monRageRow'), sel = document.getElementById('monRage');
+  row.hidden = !(fx3u.set && fx3u.set.triggers && fx3u.set.triggers.rage);
+  sel.value = String(state.zoneIn.rage | 0);
+}
+document.getElementById('monRage').onchange = e => {
+  state.zoneIn.rage = +e.target.value;
+  saveState(); fx3u.clear(); play(); applyHeat();
+};
 
 // ---- controls -----------------------------------------------------------------------------
 // THE WHEEL STEPS A DROPDOWN, CLOSED. The MHGU Monster Viewer's control (its index.html, commit f10d041), brought
@@ -4058,6 +4394,7 @@ function applySet(o){
   if (o.zoneColour === ZONE_CAPSULE_AUTO || ZONE_CAPSULE_COLOURS.some(c => c.key === o.zoneColour)) state.zoneColour = o.zoneColour;
   if (['raw', 'elem', 'status', 'extracts'].indexOf(o.zoneTab) >= 0) state.zoneTab = o.zoneTab;
   // the Hit Zones panel's own state inputs: control key -> a number
+  for (const k of ['questRank', 'hunterDist', 'hunterSide', 'hunterHeight']) if (Number.isFinite(o[k])) state[k] = o[k];
   if (o.zoneIn && typeof o.zoneIn === 'object' && !Array.isArray(o.zoneIn))
     state.zoneIn = Object.fromEntries(Object.entries(o.zoneIn).filter(([, v]) => Number.isFinite(v)));
   if (Array.isArray(o.groups)) state.groups = o.groups.map(Boolean);
@@ -4117,6 +4454,8 @@ renderer.setAnimationLoop(() => {
   if (!booted || loadHold > 0) return;
   pose.step(poseRoots());
   if (carryLoop()) pose.step(poseRoots());   // a pass started over: the world group moved on, so lay the bones again
+  if (stepTurns()) pose.step(poseRoots());   // the monster turned: lay the bones on the new facing
+  stepSever();                             // a cut piece in flight, or lying where it landed
   followTravel();                          // the orbit camera rides the monster's travel
   inLoopTravel(lastInLoop);
   updateDepthBias();
@@ -4125,6 +4464,10 @@ renderer.setAnimationLoop(() => {
   if (camMode === 'fly') stepFly(); else controls.update();
   stepLighting(); trackLights();           // the key's orbit, and the rig turned to the view
   head.position.copy(camera.position);
+  // the clip on screen drives the monster's effect requests (the frame each is made on), then they step and draw
+  fx3u.tick(state.list, state.clip, pose.action ? pose.action.time : 0);
+  stepAttackBoxes();
+  fx3u.frame(camera);                      // the monster's live effects, stepped in whole 1/60 s game frames
   renderFrame();
   recFrame();
 });
@@ -4135,6 +4478,13 @@ renderer.setAnimationLoop(() => {
 window.__view = { camera, controls, scene, world, renderer, frameAll, pose, state, MON, mounted,
                   monsterMats, capture: captureHarness, clip: clipHarness, currentSet, applySet,
                   grid: { set: on => { floorGridOn = !!on; paintFloorGrid(); }, info: () => floorGrid.info() } };
+window.__view.attackBoxes = () => atkBoxes ? atkBoxes.userData.last : null;   // the Attack Hitboxes overlay's last update
+
+// effects: __view.fx3u.play('em001_000', gid, [x, y, z]) plays one of the monster's effect lists on a joint (game-unit
+// offset); __view.fx3u.runtime.stats counts starts, ends and the quads drawn last frame
+window.__view.fx3u = { runtime: fx3u,
+  play: (efl, gid, offset) => { const b = gidBonesOf(mounted.main).find(x => x.gid === gid);
+    return fx3u.play(['effect', 'efl', 'em', state.id, efl].join('\\'), b ? (b.leaf || b.node) : mounted.main, { offset }); } };
 // The Camera, Lighting and Effects panels' hooks, in the MHGU Armor Viewer's shape, so a test can drive them the same
 // way in both apps: __view.lens.set('fisheye', 140), __view.fx.preset('glow'), __view.fx.render() ...
 Object.assign(window.__view, {
